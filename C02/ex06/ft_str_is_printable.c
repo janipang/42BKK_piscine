@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/14 18:36:15 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/14 18:36:21 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_str_is_printable(char *str)
 {
-	int	length;
-
-	length = 0;
-	while (*str)
+	while (*str >= 33 && *str <= 126)
 	{
-		length++;
 		str++;
 	}
-	return (length);
+	if (*str == '\0')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// #include <stdio.h>
+// int main()
+// {
+//     printf("%d", ft_str_is_printable("a"));
+//     printf("%d", ft_str_is_printable(" "));
+//     printf("%d", ft_str_is_printable("\n"));
+//     printf("%d", ft_str_is_printable("~"));
+// }

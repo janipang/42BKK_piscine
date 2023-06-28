@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:47 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:49 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/08 21:23:28 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/09 09:52:22 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	print_number(int dec_num)
+void	print_digit(int int_a)
 {
-	char	alpha;
+	char	char_a;
 
-	if (dec_num >= 10)
+	char_a = '0' + int_a;
+	write(1, &char_a, 1);
+}
+
+void	print_pos(int nb)
+{
+	int	digit_number;
+	int	power;
+
+	power = 1000000000;
+	while ((nb / power) == 0)
 	{
-		print_number(dec_num / 10);
-		print_number(dec_num % 10);
+		power /= 10;
 	}
-	else
+	while (power > 0)
 	{
-		alpha = '0' + dec_num;
-		write(1, &alpha, 1);
+		digit_number = nb / power;
+		print_digit(digit_number);
+		nb %= power;
+		power /= 10;
 	}
+}
+
+void	print_neg(int nb)
+{
+	write(1, "-", 1);
+	print_pos(-1 * nb);
 }
 
 void	ft_putnbr(int nb)
@@ -36,19 +53,19 @@ void	ft_putnbr(int nb)
 	}
 	else if (nb < 0)
 	{
-		write(1, "-", 1);
-		nb *= -1;
-		print_number(nb);
+		print_neg(nb);
 	}
-	else
+	else if (nb == 0)
 	{
-		print_number(nb);
+		write(1, "0", 1);
+	}
+	else if (nb > 0)
+	{
+		print_pos(nb);
 	}
 }
 
-/*int main(void)
-{
-	int n = -100080;
-    ft_putnbr(n);
-    return (0);
-}*/
+// int	main(void)
+// {
+// 	ft_putnbr(2147483647);
+// }

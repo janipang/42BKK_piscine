@@ -12,31 +12,30 @@
 
 #include <unistd.h>
 
-int	sort_params(int argc, char *argv[], int th, int sub_th)
+int	sort_params(int argc, char *argv[], int *count)
 {
 	char	*buffer;
-	int	i;
 
-	while (th < (argc - 1))
+	while (count[0] < (argc - 1))
 	{
-		sub_th = th + 1;
-		while (sub_th < argc)
+		count[1] = count[0] + 1;
+		while (count[1] < argc)
 		{
-			i = 0;
-			while (argv[sub_th][i] == argv[th][i])
+			count[2] = 0;
+			while (argv[count[1]][count[2]] == argv[count[0]][count[2]])
 			{
-				if (argv[sub_th][i++] == '\0')
+				if (argv[count[1]][count[2]++] == '\0')
 					break ;
 			}
-			if (argv[sub_th][i] < argv[th][i])
+			if (argv[count[1]][count[2]] < argv[count[0]][count[2]])
 			{
-				buffer = argv[th];
-				argv[th] = argv[sub_th];
-				argv[sub_th] = buffer;
+				buffer = argv[count[0]];
+				argv[count[0]] = argv[count[1]];
+				argv[count[1]] = buffer;
 			}
-			sub_th++;
+			count[1]++;
 		}
-		th++;
+		count[0]++;
 	}
 	return (0);
 }
@@ -62,18 +61,23 @@ void	display_it(int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	int	sub_th;
+	int	count[3];
 
-	sub_th = 0;
-	sort_params(argc, argv, 1, sub_th);
+	count[0] = 1;
+	count[1] = 0;
+	count[2] = 0;
+	sort_params(argc, argv, count);
 	display_it(argc, argv);
 }
 
 /*int	main(int argc, char *argv[])
 {
 	char	*opto[] = {"a.out", "02", "01", "300", "005", "422"};
-	int	sub_th;
+	int	count[3];
 
-	sort_params(6, opto, 1, sub_th);
+	count[0] = 1;
+	count[1] = 0;
+	count[2] = 0;
+	sort_params(6, opto, count);
 	display_it(6, opto);
 }*/

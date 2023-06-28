@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/12 10:54:00 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/12 11:59:27 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	length;
+#include <unistd.h>
 
-	length = 0;
-	while (*str)
+void	ft_putstr(char *str)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] != '\0')
 	{
-		length++;
-		str++;
+		write(1, &str[index], 1);
+		index++;
 	}
-	return (length);
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// int	main(void)
+// {
+// 	char	text[30] = "hellopuppy";
+// 	char	*pt = &text[0];
+
+// 	ft_putstr(pt);
+// }

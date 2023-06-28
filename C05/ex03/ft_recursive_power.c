@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/24 16:39:07 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/24 16:39:43 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_recursive_power(int nb, int power)
 {
-	int	length;
+	int	expo_value;
 
-	length = 0;
-	while (*str)
+	if (power >= 0)
 	{
-		length++;
-		str++;
+		expo_value = nb * ft_recursive_power(nb, power - 1);
+		if (power == 0)
+		{
+			expo_value = 1;
+		}
 	}
-	return (length);
+	else
+	{
+		return (0);
+	}
+	return (expo_value);
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+int	main(void)
 {
-	ft_strlen("hello puppy");
-	return (0);
+	printf("%d", ft_recursive_power(2, 7));
 }*/

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/08 16:54:08 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/08 16:59:29 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_putchar(char c)
 {
-	int	length;
-
-	length = 0;
-	while (*str)
-	{
-		length++;
-		str++;
-	}
-	return (length);
+	write(1, &c, 1);
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// int	main(void)
+// {
+// 	ft_putchar(a);
+// }

@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/09 18:11:53 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/09 18:34:14 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	length;
+#include <unistd.h>
 
-	length = 0;
-	while (*str)
-	{
-		length++;
-		str++;
-	}
-	return (length);
+void	ft_ft(int *nbr)
+{	
+	*nbr = 42;
 }
-
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/

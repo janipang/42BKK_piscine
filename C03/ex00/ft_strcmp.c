@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/15 23:40:06 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/15 23:41:06 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	length;
+	int	diff;
 
-	length = 0;
-	while (*str)
+	while (*s1 == *s2)
 	{
-		length++;
-		str++;
+		if (*s1 == '\0')
+		{
+			return (0);
+		}
+		s1++;
+		s2++;
 	}
-	return (length);
+	diff = *s1 - *s2;
+	return (diff);
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// #include <stdio.h>
+// int	main(void){
+// 	char	*pt1 = "1234567A", *pt2 = "1234567";
+// 	printf("%d", ft_strcmp(pt1, pt2);}

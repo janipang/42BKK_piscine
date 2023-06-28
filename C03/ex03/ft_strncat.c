@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/16 00:53:17 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/16 00:53:19 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	length;
+	char	*return_val;
 
-	length = 0;
-	while (*str)
+	return_val = dest;
+	while (*dest != '\0')
 	{
-		length++;
-		str++;
+		dest++;
 	}
-	return (length);
+	while (nb > 0)
+	{
+		if (*src == '\0')
+		{
+			break ;
+		}
+		*dest = *src;
+		dest++;
+		src++;
+		nb--;
+	}
+	*dest = '\0';
+	return (return_val);
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+int	main(void)
 {
-	ft_strlen("hello puppy");
-	return (0);
+	char	pt1[50] = "janipang", *pt2 = " love you";
+	printf("%s", ft_strncat(pt1, pt2, 4));
 }*/

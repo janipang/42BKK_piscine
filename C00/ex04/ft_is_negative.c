@@ -1,54 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:47 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:49 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/08 18:41:00 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/08 18:48:48 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	print_number(int dec_num)
+void	ft_is_negative(int n)
 {
-	char	alpha;
-
-	if (dec_num >= 10)
+	if (n < 0)
 	{
-		print_number(dec_num / 10);
-		print_number(dec_num % 10);
+		write(1, "N", 1);
 	}
 	else
 	{
-		alpha = '0' + dec_num;
-		write(1, &alpha, 1);
+		write(1, "P", 1);
 	}
 }
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-	}
-	else if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb *= -1;
-		print_number(nb);
-	}
-	else
-	{
-		print_number(nb);
-	}
-}
-
-/*int main(void)
-{
-	int n = -100080;
-    ft_putnbr(n);
-    return (0);
-}*/
+// int	main(void)
+// {
+// 	ft_is_negative(-23057);
+// }

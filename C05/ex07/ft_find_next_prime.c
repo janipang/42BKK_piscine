@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/24 22:41:09 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/24 22:43:15 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_find_next_prime(int nb)
 {
-	int	length;
+	int	dvd;
 
-	length = 0;
-	while (*str)
+	if (nb < 2)
 	{
-		length++;
-		str++;
+		return (2);
 	}
-	return (length);
+	dvd = 2;
+	while (dvd <= nb / dvd)
+	{
+		if (!(nb % dvd))
+		{
+			return (ft_find_next_prime(nb + 1));
+		}
+		dvd++;
+	}
+	if (dvd > nb / dvd)
+	{
+		return (nb);
+	}
+	return (nb);
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+int	main(void)
 {
-	ft_strlen("hello puppy");
-	return (0);
+	printf("%d", ft_find_next_prime(43));
 }*/

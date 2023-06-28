@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/08 18:11:09 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/08 18:36:55 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	length;
+#include <unistd.h>
 
-	length = 0;
-	while (*str)
+void	ft_print_reverse_alphabet(void)
+{
+	int	i;
+
+	i = 122;
+	while (i > 96)
 	{
-		length++;
-		str++;
+		write(1, &i, 1);
+		i--;
 	}
-	return (length);
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// int	main(void)
+// {
+// 	ft_print_reverse_alphabet();
+// }

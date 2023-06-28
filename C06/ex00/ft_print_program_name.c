@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/24 23:16:44 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/24 23:21:57 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	length;
+#include <unistd.h>
 
-	length = 0;
-	while (*str)
+int	main(int argc, char *argv[])
+{
+	argc = 0;
+	while (*argv[0])
 	{
-		length++;
-		str++;
+		write(1, argv[0], 1);
+		argv[0]++;
 	}
-	return (length);
-}
-
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
+	write(1, "\n", 1);
 	return (0);
-}*/
+}

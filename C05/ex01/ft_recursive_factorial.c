@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/24 15:01:25 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/24 15:08:22 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_recursive_factorial(int nb)
 {
-	int	length;
+	int	fact_value;
 
-	length = 0;
-	while (*str)
-	{
-		length++;
-		str++;
-	}
-	return (length);
+	fact_value = 1;
+	if (nb < 0)
+		return (0);
+	else if (nb == 0)
+		return (fact_value);
+	if (nb > 1)
+		fact_value = ft_recursive_factorial(nb - 1);
+	fact_value *= nb;
+	return (fact_value);
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+int	main(void)
 {
-	ft_strlen("hello puppy");
-	return (0);
+	printf("%d", ft_recursive_factorial(-1));
 }*/

@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/24 14:48:11 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/24 14:57:21 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	length;
+	int	fact_value;
 
-	length = 0;
-	while (*str)
+	if (nb < 0)
 	{
-		length++;
-		str++;
+		return (0);
 	}
-	return (length);
+	else
+	{
+		fact_value = 1;
+		while (nb > 0)
+		{
+			fact_value *= nb--;
+		}
+		return (fact_value);
+	}
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+int	main(void)
 {
-	ft_strlen("hello puppy");
-	return (0);
+	printf("%d", ft_iterative_factorial(5));
 }*/

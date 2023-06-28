@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   print_alphabet.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/08 17:32:59 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/08 18:36:05 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_print_alphabet(void)
 {
-	int	length;
+	int	i;
 
-	length = 0;
-	while (*str)
+	i = 97;
+	while (i < 123)
 	{
-		length++;
-		str++;
+		write(1, &i, 1);
+		i++;
 	}
-	return (length);
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// int	main(void)
+// {
+// 	ft_print_alphabet();
+// }

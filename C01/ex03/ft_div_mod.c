@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkumwan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 17:56:17 by jkumwan           #+#    #+#             */
-/*   Updated: 2023/06/23 17:56:22 by jkumwan          ###   ########.fr       */
+/*   Created: 2023/06/12 10:16:17 by jkumwan           #+#    #+#             */
+/*   Updated: 2023/06/12 10:21:50 by jkumwan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	length;
+#include <stdio.h>
 
-	length = 0;
-	while (*str)
-	{
-		length++;
-		str++;
-	}
-	return (length);
+void	ft_div_mod(int a, int b, int *div, int *mod)
+{
+	*div = a / b;
+	*mod = a % b;
 }
 
-/*int	main(void)
-{
-	ft_strlen("hello puppy");
-	return (0);
-}*/
+// int	main(void)
+// {
+// 	int	a;
+// 	int	b;
+// 	int	div_res;
+// 	int	mod_res;
+// 	int	*div;
+// 	int	*mod;
+
+// 	a = 17;
+// 	b = 4;
+// 	div = &div_res;
+// 	mod = &mod_res;
+// 	ft_div_mod(a, b, div, mod);
+// 	printf("div result: %d	mod result: %d", div_res, mod_res);
+// }
